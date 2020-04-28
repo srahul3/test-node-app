@@ -27,3 +27,52 @@ Date: Tue, 28 Apr 2020 12:26:02 GMT
 Connection: keep-alive
 
 Hello World
+
+---------------------Kubernetes deployment------------------------------
+
+PS D:\rahul\sde\git-repository\test-node-app> kubectl apply -f k8s.yml
+deployment.apps/hello-world created
+service/hello-world created
+
+PS D:\rahul\sde\git-repository\test-node-app> kubectl get all
+NAME                               READY   STATUS    RESTARTS   AGE
+pod/hello-world-7c99fd8d68-8g5m9   1/1     Running   0          10m
+pod/hello-world-7c99fd8d68-jpthm   1/1     Running   0          14m
+
+NAME                  TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/hello-world   ClusterIP   10.132.178.55   <none>        8090/TCP   14m
+
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/hello-world   2/2     2            2           14m
+
+NAME                                     DESIRED   CURRENT   READY   AGE
+replicaset.apps/hello-world-7c99fd8d68   2         2         2       14m
+
+On Okteto:
+Deployment
+hello-world
+Running
+Overview
+Logs
+CPU
+1.0
+ / 
+2.0
+Memory
+2GB
+ / 
+4GB
+Disk
+0Bytes
+ / 
+10GB
+Type:
+Deployment
+Endpoints:
+https://hello-world-srahul3.cloud.okteto.net
+Replicas:
+2
+Created:
+16 mins ago
+Last updated:
+12 mins ago
